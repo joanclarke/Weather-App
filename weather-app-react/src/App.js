@@ -21,6 +21,7 @@ function App() {
         .catch((error) => setError(error.response.data.message))
       setLocation('')
       setError('')
+      setData({})
     }
   }
 
@@ -54,6 +55,9 @@ function App() {
               </div>
               <div className="description">
                 {data.weather ? <p>{data.weather[0].main}</p> : null}
+                {data.weather ? (
+                  <p className="desc">{data.weather[0].description}</p>
+                ) : null}
               </div>
             </div>
             {data.name !== undefined && (

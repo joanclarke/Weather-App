@@ -74,8 +74,9 @@ h1 {
   text-align: center;
 }
 
-.container .error .small {
-  font-size: 0.9rem;
+.container .error .small,
+.app .description p.desc {
+  font-size: medium;
 }
 
 .app .top {
@@ -89,6 +90,10 @@ h1 {
   transform-origin: 0 0;
   transform: rotate(269deg);
 }
+
+/* .app .description p.desc {
+  font-size: medium;
+} */
 
 .app .bottom {
   display: flex;
