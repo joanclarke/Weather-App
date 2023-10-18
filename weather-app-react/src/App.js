@@ -30,14 +30,19 @@ function App() {
         <input
           value={location}
           onChange={(event) => setLocation(event.target.value)}
-          onKeyPress={searchLocation}
+          // onKeyPress={searchLocation}
+          onKeyDown={searchLocation}
           placeholder="Enter Location"
           type="text"
         />
       </div>
       <div className="container">
         {error === 'city not found' ? (
-          <p>{error}</p>
+          <div className="error">
+            {/* <p>{error}</p> */}
+            <p>Location not found</p>
+            <p className="small">Please check your spelling and try again.</p>
+          </div>
         ) : (
           <div className="container">
             <div className="top">

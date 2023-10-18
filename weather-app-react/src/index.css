@@ -64,10 +64,18 @@ h1 {
   margin: auto;
   padding: 0 1rem;
   position: relative;
-  top: 10%;
+  /* top: 10%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.container .error {
+  text-align: center;
+}
+
+.container .error .small {
+  font-size: 0.9rem;
 }
 
 .app .top {
