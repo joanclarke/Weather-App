@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
+// const API_KEY = `${process.env.REACT_APP_WEATHER_API_KEY}`
+// console.log('API: ', API_KEY)
+
 function App() {
   const [data, setData] = useState({})
   const [location, setLocation] = useState('')
   const [error, setError] = useState('')
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=4c42be5a817769952f07dc6e780087c7`
-
-  // const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=895284fb2d2c50a520ea537456963d9c`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
 
   const searchLocation = (event) => {
     if (event.key === 'Enter') {
@@ -18,13 +19,17 @@ function App() {
           setData(response.data)
           console.log(response.data)
         })
-        .catch((error) => setError(error.response.data.message))
+        .catch((error) => {
+          // console.log(error.message)
+          setError(error.message)
+        })
+
       setLocation('')
       setError('')
       setData({})
+      console.log(error)
     }
   }
-
   return (
     <div className="app">
       <div className="search">
@@ -38,7 +43,7 @@ function App() {
         />
       </div>
       <div className="container">
-        {error === 'city not found' ? (
+        {error === 'Request failed with status code 404' ? (
           <div className="error">
             {/* <p>{error}</p> */}
             <p>Location not found</p>
