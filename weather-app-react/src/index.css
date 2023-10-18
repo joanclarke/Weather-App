@@ -101,6 +101,11 @@ h1 {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+.bottom div {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
 .bold {
   font-weight: 700;
 }
